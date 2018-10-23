@@ -3,16 +3,16 @@
 Clients
 ============
 
-Since PipelineDB is compatible with PostgreSQL 9.5, it doesn't have its own client libraries. Instead, any client that works with PostgreSQL (or any SQL database for that matter) will work with PipelineDB.
+Since PipelineDB is compatible with PostgreSQL 10.2+, it doesn't have its own client libraries. Instead, any client that works with PostgreSQL (or any SQL database for that matter) will work with PipelineDB.
 
-Here you'll find examples of a simple PipelineDB application written in a few different languages and clients. The application simply creates the :code:`CONTINUOUS VIEW`:
+Here you'll find examples of a simple PipelineDB application written in a few different languages and clients. The application simply creates the continuous view:
 
-.. code-block:: pipeline
+.. code-block:: sql
 
-  CREATE CONTINUOUS VIEW continuous view AS
+  CREATE VIEW continuous view WITH (action=materialize) AS
 	SELECT x::integer, COUNT(*) FROM stream GROUP BY x;
 
-The application then emits :code:`100,000` events resulting in :code:`10` unique groupings for the :code:`CONTINUOUS VIEW`, and prints out the results.
+The application then emits :code:`100,000` events resulting in :code:`10` unique groupings for the continuous view, and prints out the results.
 
 Python
 ----------------
@@ -81,13 +81,13 @@ This example in Ruby uses the pg_ gem.
 	# uniques     - count the number of unique users for each url
 	# p99_latency - determine the 99th-percentile latency for each url
 
-  s = "
-  CREATE FOREIGN TABLE page_views (
-    url text,
-    cookie text,
-    latency integer
-  ) SERVER pipelinedb"
-  pipeline.exec(s)
+	s = "
+	CREATE FOREIGN TABLE page_views (
+		url text,
+		cookie text,
+		latency integer
+	) SERVER pipelinedb"
+	pipeline.exec(s)
 
 	q = "
 	CREATE VIEW v WITH (action=materialize) AS
