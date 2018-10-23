@@ -80,25 +80,25 @@ Top-K Functions
 
 **topk_increment ( topk, expression )**
 
-	Increments the frequency of the given expression within the given **topk** and returns the resulting :ref:`fss`.
+	Increments the frequency of the given expression within the given **topk** and returns the resulting :ref:`topk`.
 
-**fss_increment_weighted ( fss, expression, weight )**
+**topk_increment ( fss, expression, weight )**
 
-	Increments the frequency of the given expression by the specified weight within the given :ref:`fss` and returns the resulting :ref:`fss`.
+	Increments the frequency of the given expression by the specified weight within the given :ref:`topk` and returns the resulting :ref:`topk`.
 
-**fss_topk ( fss )**
+**topk ( topk )**
 
-	Returns up to k tuples representing the given :ref:`fss` top-k values and their associated frequencies.
+	Returns up to k tuples representing the given :ref:`topk` top-k values and their associated frequencies.
 
-**fss_topk_freqs ( fss )**
+**topk_freqs ( topk )**
 
-	Returns up to k frequencies associated with the given :ref:`fss` top-k most frequent values.
+	Returns up to k frequencies associated with the given :ref:`topk` top-k most frequent values.
 
-**fss_topk_values ( fss )**
+**topk_values ( topk )**
 
-	Returns up to k values representing the given :ref:`fss` top-k most frequent values.
+	Returns up to k values representing the given :ref:`topk` top-k most frequent values.
 
-See :ref:`topk-aggs` for aggregates that can be used to generate Filtered-Space Saving objects.
+See :ref:`topk-aggs` for aggregates that can be used to generate **topk** objects.
 
 .. _cmsketch-funcs:
 
