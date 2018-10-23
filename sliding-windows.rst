@@ -28,7 +28,7 @@ Even though sliding windows are a new concept for a SQL database, PipelineDB doe
 
 **What users have I seen in the last minute?**
 
-.. code-block:: pipeline
+.. code-block:: sql
 
 	CREATE CONTINUOUS VIEW recent_users WITH (sw = '1 minute') AS
 	   SELECT user_id::integer FROM stream;
