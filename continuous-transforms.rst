@@ -50,7 +50,7 @@ This will remove the continuous transform from the system along with all of its 
 Viewing Continuous Transforms
 ---------------------------
 
-To view the continuous transforms currently in the system, you can run the following query:
+To view the continuous transforms and their definitions currently in the system, you can run the following query:
 
 .. code-block:: sql
 
