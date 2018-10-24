@@ -184,7 +184,7 @@ Emphasizing the above notice, this continuous view would only ever store a singl
 
 **Calculate the number of unique users seen per url referrer each day using only a constant amount of space per day:**
 
-.. code-block:: pipeline
+.. code-block:: sql
 
   CREATE VIEW uniques AS
   SELECT date_trunc('day', arrival_timestamp) AS day,
