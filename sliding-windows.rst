@@ -129,7 +129,7 @@ Here's an example of using **step_factor** in conjunction with **sw** to aggrega
 
 .. code-block:: sql
 
-  CREATE CONTINUOUS VIEW hourly (WITH sw = '1 hour', step_factor = 50)
+  CREATE VIEW hourly (WITH sw = '1 hour', step_factor = 50)
     AS SELECT COUNT(*) FROM stream;
 
 -----------------------------
