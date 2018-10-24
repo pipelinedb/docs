@@ -1,35 +1,45 @@
 .. _installation:
 
-Installation
-==============
+PipelineDB Installation
+===========================
 
-Download the PipelineDB binary for your OS from our `downloads <http://pipelinedb.com/download>`_ page.
+Install PostgreSQL
+---------------------------
 
-RPM
------------
+Since PipelineDB runs as an extension to PostreSQL, begin by `installing PostgreSQL`_.
+
+.. _`installing PostgreSQL`: https://www.postgresql.org/download/
+
+Once you have PostgreSQL installed on your system, you just need to install the PipelineDB binaries and then create the PipelineDB extension within your PostgreSQL database.
+
+apt
+------------
+
+
+yum
+---------------
+
+-------------------------
+
+You may also download binary packages from our `release <https://github.com/pipelinedb/pipelinedb/releases>`_ archives and install them directly.
+
+RPM Packages
+--------------------
 
 To install the PipelineDB RPM package, run:
 
 .. code-block:: sh
 
-	sudo rpm -ivh pipelinedb-<version>.rpm
+	sudo rpm -ivh pipelinedb-postgresql-<pg version>_<pipelindb version>.rpm
 
-This will install PipelineDB at :code:`/usr/lib/pipelinedb`. To install at a prefix of your choosing, use the :code:`--prefix` argument:
-
-.. code-block:: sh
-
-	sudo rpm -ivh --prefix=/path/to/pipelinedb pipelinedb-<version>.rpm
-
-Debian
------------
+Debian Packages
+---------------------
 
 To install the PipelineDB Debian package, run:
 
 .. code-block:: sh
 
-	sudo dpkg -i pipelinedb-<version>.deb
-
-This will install PipelineDB at :code:`/usr/lib/pipelinedb`.
+	sudo dpkg -i pipelinedb-postgresql-<pg version>_<pipelindb version>.deb
 
 OS X
 ----
@@ -87,29 +97,6 @@ To connect to a running server using the default database "pipeline", the :code:
 	psql -p 5432 -h localhost pipeline
 
 You can check out the :ref:`quickstart` section to start streaming data into PipelineDB right now.
-
-Debug Mode
---------------------------
-
-.. versionadded:: 0.9.1
-
-The PipelineDB server can also be run in debug mode, which enables assertions as well as additional diagnostic output when something such as a crash occurs. Debug mode is designed to enable us to better support users when something goes wrong. It can be run in two ways:
-
-First, with the :code:`-d`/:code:`--debug` flag in conjunction with :code:`pipeline-ctl` binary:
-
-.. code-block:: sh
-
-	pipeline-ctl -d -D ... start
-	pipeline-ctl --debug -D ... start
-
-Or by executing the :code:`pipelinedb-debug` binary directly:
-
-.. code-block:: sh
-
-	pipelinedb-debug -D <data directory>
-
-.. note:: The debug-mode binary uses unoptimized code and includes assertions and debug symbols, and as a result is not optimized for performance. Debug mode should only be used when reproducing errors.
-
 
 Configuration
 ---------------------
